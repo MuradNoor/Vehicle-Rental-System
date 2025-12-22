@@ -4,6 +4,7 @@ import initDB from "./config/db";
 import { authRoutes } from "./Modules/Auth/auth.routes";
 import { userRoutes } from "./Modules/Users/users.routes";
 import { vehicleRoutes } from "./Modules/Vehicles/vehicles.routes";
+import { bookingRoutes } from "./Modules/Bookings/bookings.routes";
 
 const app = express()
 const port = config.port;
@@ -24,6 +25,9 @@ app.use("/api/v1/auth", authRoutes);
 
 // ? vehicles
 app.use("/api/v1/vehicles", vehicleRoutes);
+
+// ? bookings
+app.use("/api/v1/bookings", bookingRoutes);
 
 // ! route not found
 // app.use((req: Request, res:Response) => {
