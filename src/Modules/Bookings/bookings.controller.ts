@@ -47,9 +47,38 @@ const getBookings = async(req: Request, res: Response) => {
       errors: err.message,
     });
     }
-}
+};
+
+const updateBookings = async(req: Request, res: Response) => {
+    const {status} = req.body;
+    console.log(status);
+    try{
+        if(status === 'returned'){
+            const result = await bookingService.updateBookings(status);
+        res.status(200).json({
+            success: true,
+            message: "Booking marked as returned. Vehicle is now available",
+            data: result.rows[0]
+        });
+        }else if(status === 'cancelled'){
+            const result = await bookingService.updateBookings(status);
+        res.status(200).json({
+            success: true,
+            message: "Booking cancelled successfully",
+            data: result.rows[0]
+        });
+        }
+    }catch(err: any){
+          res.status(500).json({
+      success: false,
+      message: "Failed",
+      errors: err.message,
+    });
+    }
+};
 
 export const bookingController = {
     createBooking,
-    getBookings
+    getBookings,
+    updateBookings
 };
