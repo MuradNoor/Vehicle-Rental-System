@@ -1,6 +1,6 @@
 # 🚗 Vehicle Rental System API
 
-**Live API:**
+**Live API:** https://car-rental-system-ten-puce.vercel.app/
 
 A robust backend API for managing vehicle rentals with role-based authentication, built with Node.js, TypeScript, and PostgreSQL.
 
